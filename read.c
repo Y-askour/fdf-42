@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 14:48:54 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 15:11:57 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	get_width(char *filename)
 	int		fd;
 	char	**d;
 	int		i;
-	char *line;
+	int		j;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	line = get_next_line(fd);
@@ -25,8 +26,8 @@ int	get_width(char *filename)
 	i = 0;
 	while (d[i])
 		i++;
-	int j =0;
-	while(d[j])
+	j = 0;
+	while (d[j])
 		free(d[j++]);
 	free(d);
 	free(line);
@@ -35,15 +36,17 @@ int	get_width(char *filename)
 
 int	get_height(char *filename)
 {
-	int	i;
-	int	fd;
-	char *line;
+	int		i;
+	int		fd;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	i = 0;
-	while ((line = get_next_line(fd) ) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		free(line);
+		line = get_next_line(fd);
 		i++;
 	}
 	return (i);
@@ -53,7 +56,7 @@ void	fill_map(int *nums, char *line)
 {
 	char	**s_line;
 	int		i;
-	int j;
+	int		j;
 
 	i = 0;
 	s_line = ft_split(line, ' ');
@@ -63,16 +66,16 @@ void	fill_map(int *nums, char *line)
 		i++;
 	}
 	j = 0;
-	while(s_line[j])
+	while (s_line[j])
 		free(s_line[j++]);
 	free(s_line);
 }
 
 void	read_fdf(char *filename, t_data *ptr)
 {
-	int	i;
-	int	fd;
-	char *line;
+	int		i;
+	int		fd;
+	char	*line;
 
 	i = 0;
 	ptr->width = get_width(filename);
@@ -83,7 +86,7 @@ void	read_fdf(char *filename, t_data *ptr)
 	{
 		ptr->map[i] = (int *) malloc(sizeof(int) * (ptr->width + 1));
 		line = get_next_line(fd);
-		fill_map(ptr->map[i],line);
+		fill_map(ptr->map[i], line);
 		free(line);
 		i++;
 	}
