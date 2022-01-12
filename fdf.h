@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/10 17:16:23 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:12:30 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
-# include "get_next_line/get_next_line.h"
+# include "get_next_line.h"
 # include "libft/libft.h"
 
 typedef struct data

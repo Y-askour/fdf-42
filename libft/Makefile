@@ -43,8 +43,8 @@ bns_objs = $(bns:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
-	@$(cc) $(flags) $(srcs)
+%.o: %.c libft.h
+	@$(cc) $(flags) $< -c -I libft.h  
 
 $(NAME): $(objs)
 	@ar -rc $(NAME) $(objs)

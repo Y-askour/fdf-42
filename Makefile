@@ -6,7 +6,7 @@
 #    By: yaskour <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/31 12:01:08 by yaskour           #+#    #+#              #
-#    Updated: 2022/01/10 17:23:18 by yaskour          ###   ########.fr        #
+#    Updated: 2022/01/12 18:19:26 by yaskour          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ SRCS = main_mandatory.c\
 	   key.c\
 	   read.c \
 	   menu.c \
-	   ./get_next_line/get_next_line.c \
-	   ./get_next_line/get_next_line_utils.c
 
 BONUS_SRCS = main_bonus.c\
 			 key_bonus.c
@@ -31,23 +29,27 @@ BONUS_OBJS =$(BONUS_SRCS:.c=.o)\
 			draw.o\
 			read.o\
 			menu.o\
-			./get_next_line/get_next_line_utils.c\
-			./get_next_line/get_next_line.c\
 
-ALL:$(NAME)
+GNL_SRC = get_next_line.c\
+		  get_next_line_utils.c
+
+GNL_OBJS =$(GNL_SRC:.c=.o)
+all:utils $(NAME)
 
 libft:
-	make -C ./libft
-	mv ./libft/libft.a .
+	@make -C ./libft
+	@mv ./libft/libft.a .
 
-%.o: %.c
-	$(cc) $(flags) $< -I $(INCL) -c 
+gnl:$(GNL_OBJS)
 
-$(NAME):$(OBJS) libft
-	$(cc) $(flags) $(SRCS) -lmlx  $(framework) libft.a -o $(NAME)
+utils:gnl libft
+%.o: %.c $(INCL)
+	$(cc) $(flags) $< -I $(INCL) -c
+$(NAME):$(OBJS)
+	$(cc) $(flags) $(OBJS) $(GNL_OBJS) -lmlx $(framework) libft.a -o $(NAME)
 
-bonus:libft $(BONUS_OBJS)
-	$(cc) $(flags) $(BONUS_OBJS) -lmlx  $(framework) libft.a -o $(NAME)
+bonus:$(BONUS_OBJS) utils
+	$(cc) $(flags) $(BONUS_OBJS) $(GNL_OBJS) -lmlx  $(framework) libft.a -o $(NAME)
 
 clean:
 	@rm -rf *.o
@@ -57,4 +59,5 @@ clean:
 fclean:clean
 	@rm -rf *.a
 	@rm -rf fdf
-.PHONY:ALL libft clean fclean
+re:fclean all
+.PHONY:ALL libft gnl clean fclean

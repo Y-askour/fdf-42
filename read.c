@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 15:24:49 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:21:58 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,19 @@ void	fill_map(int *nums, char *line)
 	free(s_line);
 }
 
-int check_dir(char *filename)
+int	check_dir(char *filename)
 {
-	int nb;
-	int fd;
-	char *buf;
+	int		nb;
+	int		fd;
+	char	*buf;
+
 	fd = open(filename, O_RDONLY);
 	buf = malloc(sizeof(char) * 2);
-	nb = read(fd,buf,2);
+	nb = read(fd, buf, 2);
 	if (nb < 0)
-		return 1;
+		return (1);
 	free(buf);
-	return 0;
-
+	return (0);
 }
 
 void	read_fdf(char *filename, t_data *ptr)
@@ -95,7 +95,7 @@ void	read_fdf(char *filename, t_data *ptr)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || check_dir(filename))
 	{
-		ft_putstr_fd("check file path\n",1);
+		ft_putstr_fd("check file path\n", 1);
 		exit(1);
 	}
 	i = 0;
