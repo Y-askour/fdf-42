@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 18:21:58 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:42:34 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,14 @@ void	read_fdf(char *filename, t_data *ptr)
 	i = 0;
 	ptr->width = get_width(filename);
 	ptr->height = get_height(filename);
-	ptr->map = (int **) malloc(sizeof(int *) * ptr->height);
+	ptr->map = (int **) malloc(sizeof(int *) * ptr->height + 1);
 	while (i < ptr->height)
 	{
-		ptr->map[i] = (int *) malloc(sizeof(int) * (ptr->width + 1));
+		ptr->map[i] = (int *) malloc(sizeof(int) * ptr->width);
 		line = get_next_line(fd);
 		fill_map(ptr->map[i], line);
 		free(line);
 		i++;
 	}
+	ptr->map[i] = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:02:03 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/10 17:21:17 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 18:51:16 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,22 @@ void	depth(int key, t_data *data)
 		data->depth -= 2;
 }
 
+void	free_map(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map[i])
+		free(data->map[i++]);
+	free(data->map);
+	exit(0);
+}
+
 int	press(int key, t_data *data)
 {
 	mlx_clear_window(data->mlx, data->win);
 	if (key == 53)
-		exit(0);
+		free_map(data);
 	if (key == 69)
 		data->zoom += 2;
 	if (key == 78)
