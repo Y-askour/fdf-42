@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 14:37:00 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 14:48:54 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	fill_map(int *nums, char *line)
 {
 	char	**s_line;
 	int		i;
+	int j;
 
 	i = 0;
 	s_line = ft_split(line, ' ');
@@ -61,12 +62,17 @@ void	fill_map(int *nums, char *line)
 		nums[i] = ft_atoi(s_line[i]);
 		i++;
 	}
+	j = 0;
+	while(s_line[j])
+		free(s_line[j++]);
+	free(s_line);
 }
 
 void	read_fdf(char *filename, t_data *ptr)
 {
 	int	i;
 	int	fd;
+	char *line;
 
 	i = 0;
 	ptr->width = get_width(filename);
@@ -76,7 +82,9 @@ void	read_fdf(char *filename, t_data *ptr)
 	while (i < ptr->height)
 	{
 		ptr->map[i] = (int *) malloc(sizeof(int) * (ptr->width + 1));
-		fill_map(ptr->map[i], get_next_line(fd));
+		line = get_next_line(fd);
+		fill_map(ptr->map[i],line);
+		free(line);
 		i++;
 	}
 }
