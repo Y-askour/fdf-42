@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 14:32:47 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/12 14:37:00 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ int	get_height(char *filename)
 {
 	int	i;
 	int	fd;
+	char *line;
 
 	fd = open(filename, O_RDONLY);
 	i = 0;
-	while (get_next_line(fd) != NULL)
+	while ((line = get_next_line(fd) ) != NULL)
+	{
+		free(line);
 		i++;
+	}
 	return (i);
 }
 
