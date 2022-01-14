@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 18:12:30 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 12:00:04 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -18,7 +18,8 @@
 # include <math.h>
 # include "get_next_line.h"
 # include "libft/libft.h"
-
+# define win_width 2880
+# define win_height 1800
 typedef struct data
 {
 	void	*mlx;

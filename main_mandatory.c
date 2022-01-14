@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:15:27 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 15:25:59 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 12:01:44 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Usage : ./fdf path/to/map.fdf", 0);
 		return (0);
 	}
-	data.zoom = 20;
-	data.shift_x = 800;
-	data.shift_y = 500;
+	data.zoom = 1;
+	data.shift_x = win_width / 2;
+	data.shift_y = win_height / 2;
 	data.p = 1;
 	data.anglex = 0.523599;
 	data.angley = 0.523599;
