@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 19:15:40 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 19:29:27 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	check_dir(char *filename)
 	fd = open(filename, O_RDONLY);
 	buf = malloc(sizeof(char) * 2);
 	nb = read(fd, buf, 2);
-	if (nb < 0)
+	if (nb <= 0)
 		return (1);
 	free(buf);
 	return (0);

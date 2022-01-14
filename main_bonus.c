@@ -6,11 +6,11 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:15:27 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 19:22:50 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 19:42:26 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
-
+// check wrong file 
 int	main(int argc, char **argv)
 {
 	t_data	data;
