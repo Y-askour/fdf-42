@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 18:04:45 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 19:18:17 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -18,8 +18,9 @@
 # include <math.h>
 # include "get_next_line.h"
 # include "libft/libft.h"
-# define win_width 2880
-# define win_height 1800
+# define WIN_WIDTH 2880
+# define WIN_HEIGHT 1800
+
 typedef struct data
 {
 	void	*mlx;
@@ -52,5 +53,5 @@ int		press(int key, t_data *data);
 int		mouseh(int button, int x, int y, t_data *data);
 void	menu(t_data *data);
 float	max(float a, float b);
-int ato_h(char *hex);
+int		ato_h(char *hex);
 #endif

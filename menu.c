@@ -6,38 +6,30 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:49:26 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 18:10:55 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 19:20:55 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int ato_h(char *hex)
+int	ato_h(char *hex)
 {
-	int length;
-	int base;
-	int decimal;
+	int	length;
+	int	base;
+	int	decimal;
 
 	length = ft_strlen(hex) - 1;
 	base = 1;
 	decimal = 0;
-	while( length >= 0)
+	while (length >= 0)
 	{
 		if (hex[length] >= '0' && hex[length] <= '9')
-		{
-			decimal += (hex[length] - 48 ) * base;
-			base *= 16;
-		}
+			decimal += (hex[length] - 48) * base;
 		if (hex[length] >= 'A' && hex[length] <= 'F')
-		{
 			decimal += (hex[length] - 55) * base;
-			base *= 16;
-		}
 		if (hex[length] >= 'a' && hex[length] <= 'f')
-		{
 			decimal += (hex[length] - 87) * base;
-			base *= 16;
-		}
+		base *= 16;
 		length--;
 	}
 	return (decimal);
