@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 14:22:20 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 18:21:43 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,23 @@ void	fill_map(int *nums,int *color,char *line)
 	char	**s_line;
 	int		i;
 	int		j;
-	//int		k;
+	int		k;
 
 	i = 0;
 	s_line = ft_split(line, ' ');
-	color = 0;
 	while (s_line[i])
 	{
 		nums[i] = ft_atoi(s_line[i]);
-	//	k = 0;
-	//	while(s_line[i][k] != ',')
-	//		k++;
-	//	k++;
-	//	color[i] = ft_atoi(&s_line[i][k]);
+		k = 0;
+		while(s_line[i][k] != ',' && s_line[i][k])
+			k++;
+		if (s_line[i][k] == ',')
+		{
+			k++;
+			color[i] = ato_h(&s_line[i][k]);
+		}
+		else
+			color[i] = ft_atoi("0");
 		i++;
 	}
 	j = 0;
@@ -110,11 +114,11 @@ void	read_fdf(char *filename, t_data *ptr)
 	ptr->height = get_height(filename);
 	printf("%d,%d\n",ptr->height,ptr->width);
 	ptr->map = (int **) malloc(sizeof(int *) * ptr->height + 1);
-	//ptr->color_map = (int **) malloc(sizeof(int *) * ptr->height + 1);
+	ptr->color_map = (int **) malloc(sizeof(int *) * ptr->height + 1);
 	while (i < ptr->height)
 	{
 		ptr->map[i] = (int *) malloc(sizeof(int) * ptr->width);
-		//ptr->color_map[i] = (int *) malloc(sizeof(int) * ptr->width);
+		ptr->color_map[i] = (int *) malloc(sizeof(int) * ptr->width);
 		line = get_next_line(fd);
 		fill_map(ptr->map[i], ptr->color_map[i], line);
 		free(line);

@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 18:42:00 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/12 18:22:20 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 18:30:39 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ void	controler(t_data *data)
 	data->x1 *= data->zoom;
 	data->y *= data->zoom;
 	data->y1 *= data->zoom;
-	if (z != 0)
-		data->color = 0x740001;
-	else
-		data->color = 0xd3a625;
 	if (data->p == 1)
 	{
 		isometric(&data->x, &data->y, z, data);
@@ -98,6 +94,7 @@ void	draw(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
+			data->color = data->color_map[y][x];
 			if (x < data->width -1)
 				set_coordinates(data, x, y, 0);
 			if (y < data->height -1)

@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 13:10:22 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 18:04:45 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -52,4 +52,5 @@ int		press(int key, t_data *data);
 int		mouseh(int button, int x, int y, t_data *data);
 void	menu(t_data *data);
 float	max(float a, float b);
+int ato_h(char *hex);
 #endif
