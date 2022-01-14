@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:15:27 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 12:04:29 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 14:27:19 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -28,10 +28,23 @@ int	main(int argc, char **argv)
 	data.angley = 0.523599;
 	data.depth = 1;
 	read_fdf(argv[1], &data);
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, win_width, win_height, "fdf");
-	draw(&data);
-	mlx_key_hook(data.win, press, &data);
-	mlx_mouse_hook(data.win, mouseh, &data);
-	mlx_loop(data.mlx);
+	int y = 0;
+	int x;
+	while(y < data.height)
+	{
+		x = 0;
+		while(x < data.width)
+		{
+			printf("%d",x);
+			x++;
+		}
+		write(1,"\n",1);
+		y++;
+	}
+	//data.mlx = mlx_init();
+	//data.win = mlx_new_window(data.mlx, win_width, win_height, "fdf");
+	//draw(&data);
+	//mlx_key_hook(data.win, press, &data);
+	//mlx_mouse_hook(data.win, mouseh, &data);
+	//mlx_loop(data.mlx);
 }

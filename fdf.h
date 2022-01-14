@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 12:00:04 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/14 13:10:22 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -28,6 +28,7 @@ typedef struct data
 	int		height;
 	int		width;
 	int		**map;
+	int		**color_map;
 	float	x;
 	float	x1;
 	float	y;
