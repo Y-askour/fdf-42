@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 13:00:42 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/15 17:11:17 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/15 17:52:43 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -44,7 +44,7 @@ typedef struct data
 	int		depth;
 }	t_data;
 
-int		get_width(char *filename);
+int		get_width(char *filename,int check);
 int		get_height(char *filename);
 void	read_fdf(char *filename, t_data *ptr);
 void	draw(t_data *data);
