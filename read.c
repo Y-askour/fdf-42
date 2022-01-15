@@ -6,19 +6,20 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 12:48:44 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/15 18:00:56 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/15 18:34:08 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	get_width(char *filename,int check)
+int	get_width(char *filename, int check)
 {
 	int		fd;
 	char	**d;
 	int		i;
 	int		j;
 	char	*line;
+
 	if (check == 1)
 	{
 		fd = open(filename, O_RDONLY);
@@ -26,7 +27,7 @@ int	get_width(char *filename,int check)
 		d = ft_split(line, ' ');
 	}
 	else
-		d = ft_split(filename,' ');
+		d = ft_split(filename, ' ');
 	i = 0;
 	while (d[i])
 		i++;
@@ -107,12 +108,9 @@ void	read_fdf(char *filename, t_data *ptr)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || check_dir(filename))
-	{
-		ft_putstr_fd("invalid file\n", 1);
-		exit(1);
-	}
+		invalid_file();
 	i = 0;
-	ptr->width = get_width(filename,1);
+	ptr->width = get_width(filename, 1);
 	ptr->height = get_height(filename);
 	ptr->map = (int **) malloc(sizeof(int *) * ptr->height + 1);
 	ptr->color_map = (int **) malloc(sizeof(int *) * ptr->height + 1);
@@ -121,11 +119,8 @@ void	read_fdf(char *filename, t_data *ptr)
 		ptr->map[i] = (int *) malloc(sizeof(int) * ptr->width);
 		ptr->color_map[i] = (int *) malloc(sizeof(int) * ptr->width);
 		line = get_next_line(fd);
-		if (ptr->width != get_width(line,0))
-		{
-			ft_putstr_fd("invalid file\n",1);
-			exit(0);
-		}
+		if (ptr->width != get_width(line, 0))
+			invalid_file();
 		fill_map(ptr->map[i], ptr->color_map[i], line);
 		free(line);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:15:27 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 19:42:26 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/15 18:21:12 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -28,9 +28,9 @@ int	main(int argc, char **argv)
 	data.depth = 1;
 	read_fdf(argv[1], &data);
 	if (data.height < 100 && data.width < 100)
-		data.zoom = 20;
+		data.zoom = 10;
 	else
-		data.zoom = 2;
+		data.zoom = 3;
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, WIN_WIDTH, WIN_HEIGHT, "fdf");
 	draw(&data);

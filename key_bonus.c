@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:02:03 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 19:02:37 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/15 18:19:27 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	press(int key, t_data *data)
 	if (key == 53)
 		exit(0);
 	if (key == 69)
-		data->zoom += 2;
+		data->zoom += 1;
 	if (key == 78)
-		data->zoom -= 2;
+		data->zoom -= 1;
 	if (key == 124)
 		data->shift_x += 20;
 	if (key == 123)

@@ -6,7 +6,7 @@
 /*   By: yaskour <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 14:49:26 by yaskour           #+#    #+#             */
-/*   Updated: 2022/01/14 19:20:55 by yaskour          ###   ########.fr       */
+/*   Updated: 2022/01/15 18:34:18 by yaskour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int	ato_h(char *hex)
 		length--;
 	}
 	return (decimal);
+}
+
+void	invalid_file(void)
+{
+	ft_putstr_fd("invalid file\n", 1);
+	exit(1);
 }
 
 float	max(float a, float b)
