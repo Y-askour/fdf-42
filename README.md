@@ -33,11 +33,25 @@ $>
 ```
 ## Maps
 
-You can find differents maps on the `maps` folder or create yours using the following example.
+You can find differents maps on the `test_maps` folder or create yours using the following examples.
 
-`Map of the top picture :`
-![pyra.fdf](/image/pyramap.png)
-![42.fdf](/image/42map.png)
+`EXAMPLES:`</br>
+![pyra.fdf](/image/pyramap.png)</br>
+![42.fdf](/image/42map.png)<br>
 ##Output
-
-The program 
+The program will attempt to render the model described by the fdf file in a graphical window.
+The user can interact with the graphical model with the following commands:
+[image](image/t1.png)
+[image](image/pyra.png)
+[image](image/42.png)
+[image](image/fract.png)
+```
+v : Rotate Vertically
+h : Rotate Horizontally 
+Mouse scroll up/down or +/-: Zoom in/out
+Arrow keys: Translate x/y axes or click using mouse
+a key: append depth  
+s key: append depth  
+p : switch between parallel and  isometric projection
+esc: Quit :(
+```
