@@ -50,8 +50,8 @@ v : Rotate Vertically
 h : Rotate Horizontally 
 Mouse scroll up/down or +/-: Zoom in/out
 Arrow keys: Translate x/y axes or click using mouse
-a key: append depth  
-s key: append depth  
+a key: + in z depth 
+s key: - in z depth  
 p : switch between parallel and  isometric projection
 esc: Quit :(
 ```
