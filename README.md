@@ -1,3 +1,4 @@
+# FDF 
 ## Compiling and running
 
 Run `make`. An executable will compile. Currently only tested on OS X.
