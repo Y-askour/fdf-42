@@ -41,10 +41,10 @@ You can find differents maps on the `test_maps` folder or create yours using the
 ##Output
 The program will attempt to render the model described by the fdf file in a graphical window.
 The user can interact with the graphical model with the following commands:
-[image](image/t1.png)
-[image](image/pyra.png)
-[image](image/42.png)
-[image](image/fract.png)
+![image](image/t1.png)
+![image](image/pyra.png)
+![image](image/42.png)
+![image](image/fract.png)
 ```
 v : Rotate Vertically
 h : Rotate Horizontally 
